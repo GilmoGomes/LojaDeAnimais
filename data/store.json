@@ -1,5 +1,4 @@
-[
-  {
+ {
   "id": 4210,
   "username": "Gil",
   "firstName":"Gilmo",
@@ -7,6 +6,5 @@
   "email": "gilmo.gomes@teste.com",
   "password": "gilmo123",
   "phone": "31984138855",
-  "userStatus": 4210
+  "userStatus": 0
 }
-]

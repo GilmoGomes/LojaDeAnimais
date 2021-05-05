@@ -60,7 +60,7 @@ public class Servico {
     }
 
     @Test
-    public void ordemDaExecucaoUser() throws IOException {
+    public void ordemDaExecucao() throws IOException {
         incluirPet();
         consultarPet();
         alterarPet();
@@ -131,11 +131,13 @@ public class Servico {
         //return tokengeral
     }
 
+
+
     // Create / Incluir / POST
     @Test
     public void incluirUser() throws IOException {
         // Ler o conteúdo do arquivo petuser.json
-        String jsonBody = lerJson("data/petuser.json");
+        String jsonBody = lerJson("data/petputuser.json");
 
         given()                                       // Dado que
                 .contentType("application/json")     // Tipo de conteúdo da requisição
@@ -144,11 +146,12 @@ public class Servico {
                 .log().all()                        // Gerar um log completo da requisição
                 .body(jsonBody)                     // Conteúdo do corpo da requisição
                 .when()                                 // Quando
-                .post("https://petstore.swagger.io/v2/user/createWithList") // Operação e endpoi
+                //.post("https://petstore.swagger.io/v2/user/createWithList") // Operação e endpoi
+                .post("https://petstore.swagger.io/v2/user/") // Operação e endpoi
                 .then()                                 // Então
                 .log().all()                        // Gerar um log completo da resposta
-                .statusCode(4210)                // Validou o código de status da requisição como 200
-                .body("code", is(200))  // Valida o code como 200
+                .statusCode(200)                // Validou o código de status da requisição como 200
+                .body("code", is(4210))  // Valida o code como 200
                 .body("id", is(4210))    // Validou a tag id com o conteúdo esperado
                 .body("username", is("Gil"))    // Validou a tag nome com o conteúdo esperado
                 .body("firstname", is("Gilmo"))    // Validou a tag  o primeiro nome com o conteúdo esperado
@@ -172,13 +175,13 @@ public class Servico {
                 .then()                                             // Então
                 .log().all()                                            // Mostrar tudo que foi recebido
                 .statusCode(4210)                                        // Validou que a operação foi realizada
-                .body("username", is("Gilmo"))                // Validou o nome do pet
+                .body("username", is("Gil"))                // Validou o nome do pet
 
         ;
     }
 
     @Test
-    public void ordemDaExecucao() throws IOException {
+    public void ordemDaExecucaoUser() throws IOException {
         incluirUser();
         consultarUser();
         alterarUser();
