@@ -9,7 +9,7 @@ import java.nio.file.Paths;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
-public class Servico {
+public class Pets {
     public String tokenGeral; //variavel para receber o token
 
     public String lerJson(String caminhoJson) throws IOException {
