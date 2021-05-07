@@ -17,6 +17,8 @@ public class Store {
     @Test
     public void ordenarExecucao() throws IOException {
         venderPet();
+        consVendaPet();
+        excluirVendapet();
     }
 
 
@@ -38,5 +40,40 @@ public class Store {
                 .body("complete", is(true))
         ;
     }
+
+    @Test
+    public void consVendaPet() throws IOException {
+        String jsonBody = lerJson("data/order.json");
+
+        given()
+                .contentType("application/json")
+                .log().all()
+        .when()
+                .get("https://petstore.swagger.io/v2/store/inventory")
+        .then()
+                .log().all()
+                .statusCode(200)
+               // .body("petId", is(0))
+
+
+        ;
+
+    }
+    @Test
+    public void excluirVendapet(){
+        int petId = 4201;
+        given()                                             // Dado que
+                    .contentType("application/json")                        // Tipo de conteúdo da requisição
+                    .log().all()                                            // Mostrar tudo que foi enviado
+            .when()                                             // Quando
+                    .delete("https://petstore.swagger.io/v2/store/order/6411")
+            .then()
+                .log().all()
+                .statusCode(200)
+
+        ;
+
+    }
+
 
 }

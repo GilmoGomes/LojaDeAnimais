@@ -22,9 +22,6 @@ public class Users {
         excluirUsuario();
     }
 
-
-
-
     @Test
     public void incluirUsuario() throws IOException {
         String jsonBody = lerJson("data/usersteste.json");
@@ -33,9 +30,9 @@ public class Users {
                 .contentType("application/json")
                 .log().all()
                 .body(jsonBody)
-                .when()
+        .when()
                 .post("https://petstore.swagger.io/v2/user")
-                .then()
+        .then()
                 .log().all()
                 .statusCode(200)
                 .body("code", is(200))
@@ -53,9 +50,9 @@ public class Users {
         given()
                 .contentType("application/json")
                 .log().all()
-                .when()
+        .when()
                 .get("https://petstore.swagger.io/v2/user/" + username)
-                .then()
+        .then()
                 .log().all()
                 .statusCode(200)
                 .body("id", is(5311))
@@ -93,9 +90,9 @@ public class Users {
         given()
                 .log().all()
                 .contentType("application/json")
-                .when()
+        .when()
                 .delete("https://petstore.swagger.io/v2/user/" + username)
-                .then()
+        .then()
                 .log().all()
                 .statusCode(200)
                 .body("code", is(200))
@@ -103,9 +100,6 @@ public class Users {
         ;
 
     }
-
-
-
 
 
 }

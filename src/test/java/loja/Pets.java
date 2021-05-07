@@ -28,9 +28,9 @@ public class Pets {
                 // "application/json" para APIs REST
                 .log().all()                        // Gerar um log completo da requisição
                 .body(jsonBody)                     // Conteúdo do corpo da requisição
-                .when()                                 // Quando
+        .when()                                 // Quando
                 .post("https://petstore.swagger.io/v2/pet") // Operação e endpoint
-                .then()                                 // Então
+        .then()                                 // Então
                 .log().all()                        // Gerar um log completo da resposta
                 .statusCode(200)                    // Validou o código de status da requisição como 200
                 // .body("code", is(200))  // Valida o code como 200
@@ -49,9 +49,9 @@ public class Pets {
         given()                                             // Dado que
                 .contentType("application/json")                        // Tipo de conteúdo da requisição
                 .log().all()                                            // Mostrar tudo que foi enviado
-                .when()                                             // Quando
+        .when()                                             // Quando
                 .get("https://petstore.swagger.io/v2/pet/" + petId) // Consulta pelo petId
-                .then()                                             // Então
+        .then()                                             // Então
                 .log().all()                                            // Mostrar tudo que foi recebido
                 .statusCode(200)                                        // Validou que a operação foi realizada
                 .body("name", is("Toto"))                // Validou o nome do pet
@@ -79,9 +79,9 @@ public class Pets {
                 // "application/json" para APIs REST
                 .log().all()                        // Gerar um log completo da requisição
                 .body(jsonBody)                     // Conteúdo do corpo da requisição
-                .when()                             // Quando
+        .when()                             // Quando
                 .put("https://petstore.swagger.io/v2/pet")
-                .then()
+        .then()
                 .log().all()
                 .statusCode(200)
                 .body("name", is("Toto"))
@@ -98,9 +98,9 @@ public class Pets {
         given()                                             // Dado que
                 .contentType("application/json")                        // Tipo de conteúdo da requisição
                 .log().all()                                            // Mostrar tudo que foi enviado
-                .when()                                             // Quando
+        .when()                                             // Quando
                 .delete("https://petstore.swagger.io/v2/pet/" + petId) // Consulta pelo petId
-                .then()
+        .then()
                 .log().all()
                 .statusCode(200)
 
@@ -117,9 +117,9 @@ public class Pets {
                 given()                                             // Dado que
                         .contentType("application/json")                        // Tipo de conteúdo da requisição
                         .log().all()                                            // Mostrar tudo que foi enviado
-                        .when()
+                .when()
                         .get("https://petstore.swagger.io/v2/user/login?username=charlie&password=brown")
-                        .then()
+                .then()
                         .log().all()
                         .statusCode(200)
                         .body("message", containsString("logged in user session:"))
@@ -145,10 +145,10 @@ public class Pets {
                 // "application/json" para APIs REST
                 .log().all()                        // Gerar um log completo da requisição
                 .body(jsonBody)                     // Conteúdo do corpo da requisição
-                .when()                                 // Quando
+        .when()                                 // Quando
                 //.post("https://petstore.swagger.io/v2/user/createWithList") // Operação e endpoi
                 .post("https://petstore.swagger.io/v2/user/") // Operação e endpoi
-                .then()                                 // Então
+        .then()                                 // Então
                 .log().all()                        // Gerar um log completo da resposta
                 .statusCode(200)                // Validou o código de status da requisição como 200
                 .body("code", is(4210))  // Valida o code como 200
@@ -170,9 +170,9 @@ public class Pets {
         given()                                             // Dado que
                 .contentType("application/json")                        // Tipo de conteúdo da requisição
                 .log().all()                                            // Mostrar tudo que foi enviado
-                .when()                                             // Quando
+        .when()                                             // Quando
                 .get("https://petstore.swagger.io/v2/pet/" + petId) // Consulta pelo petId
-                .then()                                             // Então
+        .then()                                             // Então
                 .log().all()                                            // Mostrar tudo que foi recebido
                 .statusCode(4210)                                        // Validou que a operação foi realizada
                 .body("username", is("Gil"))                // Validou o nome do pet
@@ -200,9 +200,9 @@ public class Pets {
                 // "application/json" para APIs REST
                 .log().all()                        // Gerar um log completo da requisição
                 .body(jsonBody)                     // Conteúdo do corpo da requisição
-                .when()                             // Quando
+        .when()                             // Quando
                 .put("https://petstore.swagger.io/v2/pet")
-                .then()
+        .then()
                 .log().all()
                 .statusCode(200)
                 .body("username", is("Gilmo"))
@@ -219,9 +219,9 @@ public class Pets {
         given()                                             // Dado que
                 .contentType("application/json")                        // Tipo de conteúdo da requisição
                 .log().all()                                            // Mostrar tudo que foi enviado
-                .when()                                             // Quando
+        .when()                                             // Quando
                 .delete("https://petstore.swagger.io/v2/pet/" + petId) // Consulta pelo petId
-                .then()
+        .then()
                 .log().all()
                 .statusCode(200)
 
